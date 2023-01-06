@@ -38,7 +38,7 @@ public class UserDaoJDBCImpl implements UserDao {
         Statement st = Util.getStatement();
         try {
             st.execute("DROP TABLE IF EXISTS USERS; ");
-         //   st.close();
+            st.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -51,7 +51,7 @@ public class UserDaoJDBCImpl implements UserDao {
         try {
             st.executeUpdate("INSERT INTO USERS (NAME,LASTNAME,AGE) " +
                     "VALUES ('" + name + "','" + lastName + "','" + age + "')");
-         //   st.close();
+            st.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -62,7 +62,7 @@ public class UserDaoJDBCImpl implements UserDao {
         Statement st = Util.getStatement();
         try {
             st.executeUpdate("DELETE FROM USERS WHERE id='" + id + "'");
-          //  st.close();
+            st.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -94,7 +94,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
                     userList.add(user);
                 }
-            //    st.close();
+               st.close();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
@@ -107,7 +107,7 @@ public class UserDaoJDBCImpl implements UserDao {
         Statement st = Util.getStatement();
         try {
             st.executeUpdate("TRUNCATE USERS");
-         //   st.close();
+            st.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
