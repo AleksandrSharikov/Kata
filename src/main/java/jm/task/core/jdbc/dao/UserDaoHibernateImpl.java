@@ -16,7 +16,7 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public void createUsersTable() {
-       /* Session session = Util.getSessionFactory().openSession();
+        Session session = Util.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
         session.createSQLQuery("CREATE TABLE IF NOT EXISTS USERS " +
                 "(" +
@@ -27,7 +27,7 @@ public class UserDaoHibernateImpl implements UserDao {
                 " primary key (ID)" +
                 ")").executeUpdate();
         tx.commit();
-        session.close();*/
+        session.close();
 
     }
 
