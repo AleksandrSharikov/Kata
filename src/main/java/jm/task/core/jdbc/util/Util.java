@@ -36,17 +36,12 @@ public class Util {
         return sf;
     }
 
-    public static Statement getStatement() {
+    public static Connection getConnection() {
         try {
             Class.forName(driver);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        try {
-            Connection connection = DriverManager.getConnection(URL, name, password);
-            return connection.createStatement();
+            return DriverManager.getConnection(URL, name, password);
 
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
