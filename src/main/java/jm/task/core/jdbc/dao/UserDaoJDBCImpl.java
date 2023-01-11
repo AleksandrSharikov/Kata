@@ -35,6 +35,7 @@ public class UserDaoJDBCImpl implements UserDao {
         try(Connection con = Util.getConnection()) {
             Statement st = con.createStatement();
             st.execute("DROP TABLE IF EXISTS USERS; ");
+            st.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
